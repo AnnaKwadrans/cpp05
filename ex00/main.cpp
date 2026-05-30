@@ -3,29 +3,79 @@
 int     main (void)
 {
 
-Bureaucrat obj("imie", 1);
-std::cout << obj.getName() << obj.getGrade() <<std::endl;
-std::cout << obj;
-
 try
 {
-        std::cout << "try: " << obj.getName().at(1) << std::endl;
+        std::cout << "TEST 1" << std::endl;
+        Bureaucrat      obj("Maria", 1);
+        std::cout << "Created: " << obj;
         obj.decrementGrade();
-        std::cout << obj;
+        std::cout << "Decremented: " << obj;
         obj.incrementGrade();
-        std::cout << obj;
-        
-        Bureaucrat obj("Michal", 151);
-        std::cout << obj;
-        //throw Bureaucrat::myException("Grade out of range");
+        std::cout << "Incremented: " << obj;
+        obj.incrementGrade();
+        std::cout << "Incremented: " << obj;
 }
 catch(const std::exception& e)
 {
-        std::cout << "ex caught" << std::endl;
+        std::cout << "Exception caught:" << std::endl;
         std::cerr << e.what() << '\n';
 }
 
+try
+{
+        std::cout << "TEST 2" << std::endl;
+        Bureaucrat      obj2("Bogdan", -3);
+        std::cout << "Created: " << obj2;
+}
+catch(const std::exception& e)
+{
+        std::cout << "Exception caught:" << std::endl;
+        std::cerr << e.what() << '\n';
+}
 
-return 0;
+try
+{
+        std::cout << "TEST 3" << std::endl;
+        Bureaucrat      obj3("Bogdan", 151);
+        std::cout << "Created: " << obj3;
+}
+catch(const std::exception& e)
+{
+        std::cout << "Exception caught:" << std::endl;
+        std::cerr << e.what() << '\n';
+}
 
+try
+{
+        std::cout << "TEST 4" << std::endl;
+        Bureaucrat      obj4("Bogdan", 145);
+        std::cout << "Created: " << obj4;
+        for (int i = 0; i < 6; i++) {
+                obj4.decrementGrade();
+                std::cout << "Decremented: " << obj4;
+        }
+}
+catch(const std::exception& e)
+{
+        std::cout << "Exception caught:" << std::endl;
+        std::cerr << e.what() << '\n';
+}
+
+try
+{
+        std::cout << "TEST 5" << std::endl;
+        Bureaucrat      obj5("Bogdan", 3);
+        std::cout << "Created: " << obj5;
+        for (int i = 0; i < 3; i++) {
+                obj5.incrementGrade();
+                std::cout << "Incremented: " << obj5;
+        }
+}
+catch(const std::exception& e)
+{
+        std::cout << "Exception caught:" << std::endl;
+        std::cerr << e.what() << '\n';
+}
+
+return (0);
 }

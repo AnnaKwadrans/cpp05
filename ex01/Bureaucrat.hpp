@@ -11,16 +11,16 @@ private:
         int                     _grade;
 
 public:
-        Bureaucrat(void); // default constructor
+        Bureaucrat(void);
         Bureaucrat(std::string name, int grade);
-        Bureaucrat(const Bureaucrat &src); // copy constructor
+        Bureaucrat(const Bureaucrat &src);
 
-        ~Bureaucrat(); // destructor
+        ~Bureaucrat();
 
-        Bureaucrat &operator=(const Bureaucrat &src); // copy assign operator
+        Bureaucrat &operator=(const Bureaucrat &src);
 
-        std::string     getName() const;  // getter
-        int             getGrade() const; // getter
+        std::string     getName() const;
+        int             getGrade() const;
 
         void            incrementGrade(void);
         void            decrementGrade(void);
@@ -28,17 +28,13 @@ public:
         class   GradeTooHighException : public std::exception
         {
                 public:
-                        const char *what() const throw() {
-                                return ("Grade too high");
-                        }
+                        const char *what() const throw();
         };
-
+        
         class   GradeTooLowException : public std::exception
         {
                 public:
-                        const char *what() const throw() {
-                                return ("Grade too low");
-                        }
+                        const char *what() const throw();
         };
 };
 
