@@ -1,0 +1,48 @@
+Throwing Custom Exceptions in C++
+To throw a custom exception, we first have to create a custom exception class. This class inherits the std::exception class from <exception> header. We override the what() method of this class to provide a custom error message.
+
+The last step is to use this user-defined custom exception in our code. The below method demonstrates how to do it.
+
+C++ Program to Throw a Custom Exception
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+​
+// Define a new exception class that
+// inherits from std::exception
+class MyException : public exception {
+private:
+    string message;
+public:
+​
+    // Constructor accepting const char*
+    MyException(const char* msg) :
+    message(msg) {}
+​
+    // Override what() method, marked
+    // noexcept for modern C++
+    const char* what() const noexcept {
+        return message.c_str();
+    }
+};
+​
+int main() {
+    try {
+        
+        // Throw custom exception with
+        // const char*
+        throw MyException("This is a custom exception");
+    }
+    
+    // Catch by const reference (good practice)
+    catch (const MyException& e) {
+        printf("Caught an exception: %s\n",
+        e.what());
+    }
+    return 0;
+}
+
+Output
+Caught an exception: This is a custom exception
