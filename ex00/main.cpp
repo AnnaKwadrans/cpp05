@@ -14,7 +14,8 @@ try
         std::cout << obj;
         obj.incrementGrade();
         std::cout << obj;
-        obj.incrementGrade();
+        
+        Bureaucrat obj("Michal", 151);
         std::cout << obj;
         //throw Bureaucrat::myException("Grade out of range");
 }

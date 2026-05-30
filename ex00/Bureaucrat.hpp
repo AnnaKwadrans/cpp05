@@ -11,7 +11,7 @@ private:
         int                     _grade;
 
 public:
-        Bureaucrat(/* args */); // default constructor
+        Bureaucrat(void); // default constructor
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat &src); // copy constructor
 
@@ -21,10 +21,40 @@ public:
 
         std::string     getName() const;  // getter
         int             getGrade() const; // getter
-        
+
         void            incrementGrade(void);
         void            decrementGrade(void);
 
+        class   GradeTooHighException : public std::exception
+        {
+                public:
+                        const char *what() const throw() {
+                                return ("Grade too high");
+                        }
+        };
+        
+        class   GradeTooLowException : public std::exception
+        {
+                public:
+                        const char *what() const throw() {
+                                return ("Grade too low");
+                        }
+        };
+        
+        /*
+        class   GradeTooHighException : public std::exception
+        {
+                private:
+                        std::string     _msg;
+                public:
+                        GradeTooHighException(const char* msg) :
+                                _msg(msg) {}
+                        
+                        const char *what() const throw() {
+                                return (_msg.c_str());
+                        }
+        }
+        *//*
         class myException : public std::exception
         {
         private:
@@ -39,13 +69,13 @@ public:
 
                 // Override what() method, marked
                 // noexcept for modern C++, not C++ 98
-                virtual const char* what() const throw() /* noexcept override */ {
+                virtual const char* what() const throw()  {
                         return message.c_str();
                 }
 
                 virtual ~myException() throw() {}; // no destructor?
         };
-
+        */
 
 };
 

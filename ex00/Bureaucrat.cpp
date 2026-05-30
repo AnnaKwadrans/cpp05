@@ -4,7 +4,10 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
-        // compr rango?
+        if (this->_grade < 1)
+                throw GradeTooHighException();
+        if (this->_grade > 150)
+                throw GradeTooLowException(); 
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src) {
@@ -33,14 +36,16 @@ int             Bureaucrat::getGrade() const {
         
 void            Bureaucrat::incrementGrade(void) {
         this->_grade--;
-        if (this->_grade < 1 || this->_grade > 150)
-                throw myException("Grade out of range (1-150)");
+        if (this->_grade < 1)
+                throw GradeTooHighException();        
+        //throw myException("Grade out of range (1-150)");
 }
 
 void            Bureaucrat::decrementGrade(void) {
         this->_grade++;
-        if (this->_grade < 1 || this->_grade > 150)
-                throw myException("Grade out of range (1-150)");
+        if (this->_grade > 150)
+                throw GradeTooLowException(); 
+        //throw myException("Grade out of range (1-150)");
 }
 
 std::ostream    &operator<<(std::ostream &os, const Bureaucrat &b) {
