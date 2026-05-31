@@ -19,7 +19,7 @@ public:
 
         Bureaucrat &operator=(const Bureaucrat &src); // copy assign operator
 
-        std::string     getName() const;  // getter
+        const std::string     &getName() const;  // getter
         int             getGrade() const; // getter
 
         void            incrementGrade(void);
