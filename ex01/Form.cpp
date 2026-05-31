@@ -36,7 +36,7 @@ Form    &Form::operator=(const Form &src) {
         return (*this);
 }
 
-std::string     Form::getName(void) const {
+const std::string     &Form::getName(void) const {
         return (this->_name);
 }
 
@@ -54,15 +54,9 @@ int             Form::getGradeReqToExec(void) const {
 
 void            Form::beSigned(const Bureaucrat &b) {
         if (this->_gradeReqToSign >= b.getGrade())
-        {
                 this->_isSigned = true;
-                std::cout << b.getName() << " signed " << this->getName() << std::endl;
-        }
         else
-        {
-                std::cout << b.getName() << " couldn’t sign " << this->getName() << " because his grade is too low" << std::endl;
                 throw GradeTooLowException();
-        }
 }
 
 const char      *Form::GradeTooHighException::what() const throw() {
