@@ -20,10 +20,9 @@ Form::Form(std::string name, int gradeReqToSign, int gradeReqToExec)
                 throw GradeTooLowException();
 }
 
-// ASI ES CORRECTO?
 Form::Form(const Form &src)
         : _name(src._name),
-        _isSigned(src._isSigned),
+        _isSigned(false),
         _gradeReqToSign(src._gradeReqToSign),
         _gradeReqToExec(src._gradeReqToExec) {
 }
@@ -31,7 +30,6 @@ Form::Form(const Form &src)
 Form::~Form() {
 }
 
-// pq los otros son const - ok?
 Form    &Form::operator=(const Form &src) {
         if (this != &src)
                 this->_isSigned = src.getIsSigned();
@@ -53,17 +51,18 @@ int             Form::getGradeReqToSign(void) const {
 int             Form::getGradeReqToExec(void) const {
         return (this->_gradeReqToExec);
 }
-/*
-void            Form::setIsSigned(void) {
-        this->_isSigned = true;
-}
-*/
 
 void            Form::beSigned(const Bureaucrat &b) {
         if (this->_gradeReqToSign >= b.getGrade())
+        {
                 this->_isSigned = true;
+                std::cout << b.getName() << " signed " << this->getName() << std::endl;
+        }
         else
+        {
+                std::cout << b.getName() << " couldn’t sign " << this->getName() << " because his grade is too low" << std::endl;
                 throw GradeTooLowException();
+        }
 }
 
 const char      *Form::GradeTooHighException::what() const throw() {
@@ -79,7 +78,6 @@ std::ostream    &operator<<(std::ostream &os, const Form &form) {
         if (!form.getIsSigned())
                 os << "not ";
         os << "signed; gradeReqToSign: " << form.getGradeReqToSign()
-                << ", gradeReqToExec: " << form.getGradeReqToExec()
-                << std::endl;
+                << ", gradeReqToExec: " << form.getGradeReqToExec();
         return (os);
 }

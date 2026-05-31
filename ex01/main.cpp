@@ -1,106 +1,46 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-int     main (void) {
-
-        try
-        {
-                std::cout << "TEST 1" << std::endl;
-                Bureaucrat      obj("Maria", 1);
-                std::cout << "Created: " << obj;
-                obj.decrementGrade();
-                std::cout << "Decremented: " << obj;
-                obj.incrementGrade();
-                std::cout << "Incremented: " << obj;
-                obj.incrementGrade();
-                std::cout << "Incremented: " << obj;
-        }
-        catch(const std::exception& e)
-        {
-                std::cout << "Exception caught:" << std::endl;
-                std::cerr << e.what() << '\n';
-        }
-
-        try
-        {
-                std::cout << "TEST 2" << std::endl;
-                Bureaucrat      obj2("Bogdan", -3);
-                std::cout << "Created: " << obj2;
-        }
-        catch(const std::exception& e)
-        {
-                std::cout << "Exception caught:" << std::endl;
-                std::cerr << e.what() << '\n';
-        }
-
-        try
-        {
-                std::cout << "TEST 3" << std::endl;
-                Bureaucrat      obj3("Bogdan", 151);
-                std::cout << "Created: " << obj3;
-        }
-        catch(const std::exception& e)
-        {
-                std::cout << "Exception caught:" << std::endl;
-                std::cerr << e.what() << '\n';
-        }
-
-        try
-        {
-                std::cout << "TEST 4" << std::endl;
-                Bureaucrat      obj4("Bogdan", 145);
-                std::cout << "Created: " << obj4;
-                for (int i = 0; i < 6; i++) {
-                        obj4.decrementGrade();
-                        std::cout << "Decremented: " << obj4;
-                }
-        }
-        catch(const std::exception& e)
-        {
-                std::cout << "Exception caught:" << std::endl;
-                std::cerr << e.what() << '\n';
-        }
-
-        try
-        {
-                std::cout << "TEST 5" << std::endl;
-                Bureaucrat      obj5("Bogdan", 3);
-                std::cout << "Created: " << obj5;
-                for (int i = 0; i < 3; i++) {
-                        obj5.incrementGrade();
-                        std::cout << "Incremented: " << obj5;
-                }
-        }
-        catch(const std::exception& e)
-        {
-                std::cout << "Exception caught:" << std::endl;
-                std::cerr << e.what() << '\n';
-        }
-
-        std::cout << "FORM TESTS" << std::endl;
-        Form    f1;
-        std::cout << f1;
-        Form    f2("C28", 31, 80);
-        std::cout << f2;
-        
-        Bureaucrat      obj("Damian", 30);
+int     main (void)
+{
         try {
+                Form    f1;
+                std::cout << f1 << std::endl;
+                Form    f2("C28", 31, 80);
+                std::cout << f2 << std::endl;
+                Form    f3("R15", -6, 240);
+                std::cout << f3 << std::endl;
+        }
+        catch (std::exception &e) {
+                std::cout << "Exception caught: " << e.what() << std::endl;
+        }
+
+        try {
+                Bureaucrat      obj("Damian", 30);
+                std::cout << obj << std::endl;
+
+                Form    f1;
+                std::cout << f1 << std::endl;
+
+                Form    f2("C28", 31, 80);
+                std::cout << f2 << std::endl;
+
                 obj.signForm(f1);
-                std::cout << f1;
-        }
-        catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
-        }
+                std::cout << f1 << std::endl;
 
-                try {
                 obj.signForm(f2);
-                std::cout << f2;
+                std::cout << f2 << std::endl;
+
+                Form    f3(f2);
+                std::cout << f3 << std::endl;
+                Bureaucrat      b;
+                std::cout << b << std::endl;
+                b.signForm(f3);
+                std::cout << f3 << std::endl;
         }
         catch (std::exception &e) {
                 std::cout << "Exception caught: " << e.what() << std::endl;
         }
-
-
 
         return (0);
 }
