@@ -1,6 +1,8 @@
 #ifndef SHRUBBERY_CREATION_FORM_HPP
 # define SHRUBBERY_CREATION_FORM_HPP
 
+# include <fstream>
+# include <iostream>
 # include "AForm.hpp"
 
 /* ShrubberyCreationForm: Required grades: sign 145, exec 137
@@ -10,7 +12,7 @@ inside it. */
 class ShrubberyCreationForm : public AForm
 {
         private:
-                std::string     _target;
+                const std::string     _target;
 
         public:
                 ShrubberyCreationForm(void);

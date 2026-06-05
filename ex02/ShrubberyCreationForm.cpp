@@ -30,6 +30,8 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     else {
         std::cout << "Creates a file <target>_shrubbery in the working directory and writes ASCII "
             << "trees inside it." << std::endl << "Executor: " << executor.getName() << std::endl;
+
+        std::ofstream    tree(this->_target);
     }
 }
 
@@ -40,7 +42,7 @@ std::string     ShrubberyCreationForm::getTarget() const {
 std::ostream    &operator<<(std::ostream &os, const ShrubberyCreationForm &form) {
     os << form.getName() << " form is ";
         if (!form.getIsSigned())
-                os << "not ";
+            os << "not ";
         os << "signed; gradeReqToSign: " << form.getGradeReqToSign()
             << ", gradeReqToExec: " << form.getGradeReqToExec()
             << ". Form's target is " << form.getTarget();
