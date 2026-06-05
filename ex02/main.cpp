@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int     main (void)
 {
@@ -31,6 +32,35 @@ int     main (void)
         //f2.execute(b2);
         std::cout << f2 << std::endl; 
 
+
+        // CONSTRUCTORES + ASSIGN OP
+        RobotomyRequestForm f4;
+        std::cout << f4 << std::endl;
+
+        RobotomyRequestForm f5("Pepe");
+        std::cout  << f5 << std::endl;
+
+        f4 = f5;
+        std::cout << f4 << std::endl;
+
+        RobotomyRequestForm f6(f5);
+        std::cout << f6 << std::endl;
+
+        // EXECUTE
+        std::srand(std::time(NULL)); // para rand() de exectute RobotomyRequestForm
+
+        Bureaucrat b3("Darek", 1);
+        b3.signForm(f4);
+        for (int i = 0; i < 8; i++)
+                b3.executeForm(f4);
+        //f1.execute(b1);
+        std::cout << f4 << std::endl;
+
+        Bureaucrat b4("Zbyszek", 150);
+        b4.signForm(f5);
+        b4.executeForm(f5);
+        //f2.execute(b2);
+        std::cout << f5 << std::endl; 
 
         /*
         try {

@@ -1,6 +1,7 @@
 #ifndef ROBOTOMY_REQUEST_FORM_HPP
 # define ROBOTOMY_REQUEST_FORM_HPP
 
+# include <cstdlib>
 # include "AForm.hpp"
 
 /* RobotomyRequestForm: Required grades: sign 72, exec 45
@@ -10,7 +11,7 @@ successfully 50% of the time. Otherwise, it informs that the robotomy failed. */
 class RobotomyRequestForm : public AForm
 {
     private:
-        std::string     _target;
+        const std::string     _target;
 
     public:
 
@@ -24,13 +25,14 @@ class RobotomyRequestForm : public AForm
 
         void    execute(Bureaucrat const & executor) const;
 
+        std::string     getTarget() const;
 
 
 
 };
 
 
-
+std::ostream    &operator<<(std::ostream &os, const RobotomyRequestForm &form);
 
 
 
