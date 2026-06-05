@@ -1,10 +1,48 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void);
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int gradeReqToSign, int gradeReqToExec);
-ShrubberyCreationForm::ShrubberyCreationForm(const Form &src);
+ShrubberyCreationForm::ShrubberyCreationForm(void)
+    : AForm("Shrubbey Creation Form", 145, 137),
+    _target("default") {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm();
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+    : AForm("Shrubbey Creation Form", 145, 137),
+    _target(target) {}
 
-ShrubberyCreationForm    &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src);
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
+    : AForm(src),
+    _target(src._target) {}
 
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+ShrubberyCreationForm    &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
+    if (this != &src) {
+        AForm::operator=(src);
+        this->_target = src._target;
+    }
+    return (*this);
+}
+
+void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+    if (!this->getIsSigned())
+        throw   FormNotSignedException();
+    else if (this->getGradeReqToExec() < executor.getGrade())
+        throw   GradeTooLowException();
+    else {
+        std::cout << "Creates a file <target>_shrubbery in the working directory and writes ASCII "
+            << "trees inside it." << std::endl << "Executor: " << executor.getName() << std::endl;
+    }
+}
+
+std::string     ShrubberyCreationForm::getTarget() const {
+    return (this->_target);
+}
+
+std::ostream    &operator<<(std::ostream &os, const ShrubberyCreationForm &form) {
+    os << form.getName() << " form is ";
+        if (!form.getIsSigned())
+                os << "not ";
+        os << "signed; gradeReqToSign: " << form.getGradeReqToSign()
+            << ", gradeReqToExec: " << form.getGradeReqToExec()
+            << ". Form's target is " << form.getTarget();
+    return (os);
+}
