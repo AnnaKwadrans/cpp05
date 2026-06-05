@@ -30,8 +30,8 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     else {
         std::cout << "Creates a file <target>_shrubbery in the working directory and writes ASCII "
             << "trees inside it." << std::endl << "Executor: " << executor.getName() << std::endl;
-
-        std::ofstream    tree(this->_target);
+        std::string filename = &this->getTarget;
+        std::ofstream    tree(filename);
     }
 }
 
