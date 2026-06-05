@@ -23,11 +23,11 @@ class PresidentialPardonForm : public AForm
 
         void    execute(Bureaucrat const & executor) const;
 
-
+        std::string     getTarget() const;
 
 };
 
-
+std::ostream    &operator<<(std::ostream &os, const PresidentialPardonForm &form);
 
 
 

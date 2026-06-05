@@ -2,6 +2,7 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int     main (void)
 {
@@ -61,6 +62,38 @@ int     main (void)
         b4.executeForm(f5);
         //f2.execute(b2);
         std::cout << f5 << std::endl; 
+
+
+
+
+
+
+        // CONSTRUCTORES + ASSIGN OP
+        PresidentialPardonForm f7;
+        std::cout << f7 << std::endl;
+
+        PresidentialPardonForm f8("Pepe");
+        std::cout  << f8 << std::endl;
+
+        f7 = f8;
+        std::cout << f7 << std::endl;
+
+        PresidentialPardonForm f9(f8);
+        std::cout << f9 << std::endl;
+
+        // EXECUTE
+        Bureaucrat b5("Darek", 1);
+        b5.signForm(f7);
+        b5.executeForm(f7);
+        //f1.execute(b1);
+        std::cout << f7 << std::endl;
+
+        Bureaucrat b6("Zbyszek", 150);
+        b6.signForm(f8);
+        b6.executeForm(f8);
+        //f2.execute(b2);
+        std::cout << f8 << std::endl; 
+
 
         /*
         try {
