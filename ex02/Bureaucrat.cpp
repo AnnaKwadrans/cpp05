@@ -1,7 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150) {
-}
+Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
         : _name(name),
@@ -23,8 +22,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src)
                 throw GradeTooLowException(); 
 }
 
-Bureaucrat::~Bureaucrat() {
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
         if (this != &src)

@@ -52,6 +52,12 @@ public:
                 public:
                         const char      *what() const throw();
         };
+
+        class InvalidFormNameException : public std::exception
+        {
+                public:
+                        const char      *what() const throw();
+        };
 };
 
 std::ostream    &operator<<(std::ostream &os, const AForm &form);

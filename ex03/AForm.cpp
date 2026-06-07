@@ -71,6 +71,10 @@ const char      *AForm::FormNotSignedException::what() const throw() {
         return ("Form not signed");
 }
 
+const char      *AForm::InvalidFormNameException::what() const throw() {
+        return ("Invalid form name");
+}
+
 std::ostream    &operator<<(std::ostream &os, const AForm &form) {
         os << form.getName() << " form is ";
         if (!form.getIsSigned())
