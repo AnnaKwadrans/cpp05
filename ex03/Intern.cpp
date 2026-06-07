@@ -56,7 +56,6 @@ AForm   *Intern::makeForm(std::string name, std::string target) {
                         return (newForm[i](target));
                 }
         }
-        std::cout << "Invalid form name." << std::endl;
-        //throw AForm::InvalidFormNameException();
+        throw AForm::InvalidFormNameException();
         return (NULL);
 }

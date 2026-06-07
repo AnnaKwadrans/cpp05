@@ -28,8 +28,8 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     else if (this->getGradeReqToExec() < executor.getGrade())
         throw   GradeTooLowException();
     else {
-        std::cout << "Creates a file <target>_shrubbery in the working directory and writes ASCII "
-            << "trees inside it." << std::endl << "Executor: " << executor.getName() << std::endl;
+        //std::cout << "Creates a file <target>_shrubbery in the working directory and writes ASCII "
+        //    << "trees inside it." << std::endl << "Executor: " << executor.getName() << std::endl;
         std::ofstream    tree((this->getTarget() + "_shrubbery").c_str());
 
         tree << "                                               |" << std::endl
