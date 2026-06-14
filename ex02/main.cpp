@@ -6,7 +6,7 @@
 
 int     main (void)
 {
-
+        std::cout << "SHRUBBERY CREATION FORM" << std::endl;
         // CONSTRUCTORES + ASSIGN OP
         ShrubberyCreationForm f1;
         std::cout << f1 << std::endl;
@@ -33,7 +33,7 @@ int     main (void)
         //f2.execute(b2);
         std::cout << f2 << std::endl; 
 
-
+        std::cout << std::endl << "ROBOTOMY REQUEST FORM" << std::endl;
         // CONSTRUCTORES + ASSIGN OP
         RobotomyRequestForm f4;
         std::cout << f4 << std::endl;
@@ -48,7 +48,7 @@ int     main (void)
         std::cout << f6 << std::endl;
 
         // EXECUTE
-        std::srand(std::time(NULL)); // para rand() de exectute RobotomyRequestForm
+        std::srand(time(NULL)); // para rand() de execute RobotomyRequestForm
 
         Bureaucrat b3("Darek", 1);
         b3.signForm(f4);
@@ -64,10 +64,7 @@ int     main (void)
         std::cout << f5 << std::endl; 
 
 
-
-
-
-
+        std::cout << std::endl << "PRESIDENTIAL PARDON FORM" << std::endl;
         // CONSTRUCTORES + ASSIGN OP
         PresidentialPardonForm f7;
         std::cout << f7 << std::endl;
@@ -94,46 +91,5 @@ int     main (void)
         //f2.execute(b2);
         std::cout << f8 << std::endl; 
 
-
-        /*
-        try {
-                AForm    f1;
-                std::cout << f1 << std::endl;
-                Form    f2("C28", 31, 80);
-                std::cout << f2 << std::endl;
-                Form    f3("R15", -6, 240);
-                std::cout << f3 << std::endl;
-        }
-        catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
-        }
-
-        try {
-                Bureaucrat      obj("Damian", 30);
-                std::cout << obj << std::endl;
-
-                Form    f1;
-                std::cout << f1 << std::endl;
-
-                Form    f2("C28", 31, 80);
-                std::cout << f2 << std::endl;
-
-                obj.signForm(f1);
-                std::cout << f1 << std::endl;
-
-                obj.signForm(f2);
-                std::cout << f2 << std::endl;
-
-                Form    f3(f2);
-                std::cout << f3 << std::endl;
-                Bureaucrat      b;
-                std::cout << b << std::endl;
-                b.signForm(f3);
-                std::cout << f3 << std::endl;
-        }
-        catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
-        }
-        */
         return (0);
 }

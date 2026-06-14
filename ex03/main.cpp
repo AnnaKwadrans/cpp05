@@ -25,11 +25,11 @@ int     main (void)
                 delete forms[0];
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
         std::cout << std::endl << "ROBOTOMY REQUEST FORM" << std::endl;
-
+        std::srand(time(NULL));
         try {
                 forms[1] = intern.makeForm("RobotomyRequestForm", "cat");
                 std::cout << *forms[1] << std::endl;
@@ -41,7 +41,7 @@ int     main (void)
                 delete forms[1];
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
         std::cout << std::endl << "PRESIDENTIAL PARDON FORM" << std::endl;
@@ -56,7 +56,7 @@ int     main (void)
                 delete forms[2];
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
         std::cout << std::endl << "NOT EXISTING FORM" << std::endl;
@@ -67,7 +67,7 @@ int     main (void)
                 delete forms[3];
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
 

@@ -12,7 +12,7 @@ int     main (void)
                 std::cout << f3 << std::endl;
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
         try {
@@ -39,7 +39,7 @@ int     main (void)
                 std::cout << f3 << std::endl;
         }
         catch (std::exception &e) {
-                std::cout << "Exception caught: " << e.what() << std::endl;
+                std::cerr << "Exception caught: " << e.what() << std::endl;
         }
 
         return (0);
